@@ -40,37 +40,42 @@ if(isset($_SESSION["id"]))
 				<p>
 					New tickets are generated from this window	
 				</p>
+				
+				<h5 class="with-border">Enter the information</h5>
 				<div class="row">
-					<div class="col-lg-6">
-						<fieldset class="form-group">
-							<label class="form-label semibold" for="exampleInput">Category</label>
-							<select  name="category" class="form-control" id="category">
-								<option>Hardware</option>
-								<option>Software</option>
-								<option>Others</option>
-							</select>
-						</fieldset>
-					</div>
-					<div class="col-lg-6">
-						<fieldset class="form-group">
-							<label class="form-label semibold" for="title">Title</label>
-							<input type="text" class="form-control" id="title" placeholder="Title" value="">
-						</fieldset>
-					</div>
-					<div class="col-lg-12">
-						<fieldset class="form-group">
-							<label class="form-label semibold" for="description">Description</label>
-							<section class="box-typical box-typical-padding">
-								<h3 class="with-border">Summernote</h3>
-								<div class="summernote-theme-2"> <!-- Theme black theme-3 -->
-									<textarea id="ticket_description" class="summernote" name="name">Hello Summernote</textarea>
-								</div>
-							</section>
-						</fieldset>
-					</div>
-				<div class="col-lg-12">
-					<button type="button" class="btn btn-rounded btn-inline btn-primary">Save</button>
-				</div>
+					<form method="POST" id="ticket_form">
+
+						<input type="hidden" name="user_id" id="user_id" value="<?php echo $_SESSION["id"]?>">
+
+						<div class="col-lg-6">
+							<fieldset class="form-group">
+								<label class="form-label semibold" for="exampleInput">Category</label>
+								<select  name="category_id" class="form-control" id="category_id">
+									
+								</select>
+							</fieldset>
+						</div>
+						<div class="col-lg-6">
+							<fieldset class="form-group">
+								<label class="form-label semibold" for="title">Title</label>
+								<input type="text" class="form-control" id="title" name="title" placeholder="Title" value="">
+							</fieldset>
+						</div>
+						<div class="col-lg-12">
+							<fieldset class="form-group">
+								<label class="form-label semibold" for="description">Description</label>
+								<section class="box-typical box-typical-padding">
+									<div class="summernote-theme-2"> <!-- Theme black theme-3 -->
+										<textarea id="description" class="summernote" name="description"></textarea>
+									</div>
+								</section>
+							</fieldset>
+						</div>
+						<div class="col-lg-12">
+							<button type="submit" name="action" value="add" class="btn btn-rounded btn-inline btn-primary">Save</button>
+						</div>
+					</form>
+
 				</div><!--.row-->
 
 			</div>

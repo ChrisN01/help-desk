@@ -1,6 +1,6 @@
 <?php
 
-class user extends Connect{
+class User extends Connect{
     public function login()
     {
         $connect = parent::conexion();
@@ -17,7 +17,7 @@ class user extends Connect{
 
             }
             else{
-                $sql = "SELECT * FROM tm_users WHERE email= ? and password=? and status=1;";
+                $sql = "SELECT * FROM users WHERE email= ? and password=? and status=1;";
                 $stmt= $connect->prepare($sql);
                 $stmt->bindValue(1,$email);
                 $stmt->bindValue(2,$password);

@@ -25,6 +25,6 @@ class Connect
 
     public function route()
     {
-        return "http://localhost/cursoLaravel/help-desk-laravel/";
+        return "http://localhost/cursoLaravel/help-desk/";
     }
 }
