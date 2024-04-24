@@ -35,7 +35,16 @@ function saveTicket(e) {
         contentType: false,
         processData:false,
         success: function(data){
-            console.log(data);
+            $('#title').val('');
+            $('#description').summernote('reset');
+
+            swal({
+                title: "Success!",
+                text: "Your ticket has been created!",
+                type: "success",
+                confirmButtonClass: "btn-success",
+                confirmButtonText: "Success"
+            });
         }
 
 
