@@ -20,4 +20,36 @@ class Ticket extends Connect{
         return $result = $sql->fetchAll();
     }
 
+
+    public function listTicketByUser($user_id)
+    {
+        $connect = parent::conexion();
+        parent::set_names();
+        $sql="SELECT 
+                tickets.id,
+                tickets.user_id,
+                tickets.category_id,
+                tickets.title,
+                tickets.description,
+                tickets.status,
+                users.name,
+                users.lastname,
+                categories.name
+                FROM 
+                tickets
+                INNER join categories on tickets.category_id = categories.id
+                INNER join users on tickets.user_id = users.id
+                WHERE
+                tickets.status = 1
+                AND users.id=1";
+
+
+
+        $sql= $connect->prepare($sql);
+        $sql->execute();
+        return $result = $sql->fetchAll();
+
+
+    }
+
 }

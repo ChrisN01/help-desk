@@ -22,13 +22,48 @@ if(isset($_SESSION["id"]))
 <!-- 	Contenido -->
 	<div class="page-content">
 		<div class="container-fluid">
-        Consult Ticket
+			<header class="section-header">
+					<div class="tbl">
+						<div class="tbl-row">
+							<div class="tbl-cell">
+								<h3>Consult ticket</h3>
+								<ol class="breadcrumb breadcrumb-simple">
+									<li><a href="#">Home</a></li>
+									<li class="active">Consult Ticket</li>
+								</ol>
+							</div>
+						</div>
+					</div>
+			</header>
+
+			<div class="box-typical box-typical-padding">
+			
+			<table id="ticket_data" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+						<thead>
+						<tr>
+							<th>#</th>
+							<th>Category</th>
+							<th>Title</th>
+							<th></th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>Tiger Nixon</td>
+							<td>System Architect</td>
+							<td>Edinburgh</td>
+							<td>61</td>
+						</tr>
+						</tbody>
+					</table>
+			</div>
+			
 		</div><!--.container-fluid-->
 	</div><!--.page-content-->
 <!-- 	Contenido -->
     <?php require_once("../MainJs/js.php")?>
 
-	<script type="text/javascript" src="consultTicket.js"></script>
+	<script type="text/javascript" src="./consultTicket.js"></script>
 </body>
 </html>
 <?php
