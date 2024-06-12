@@ -44,6 +44,7 @@ if(isset($_SESSION["id"]))
 							<th>#</th>
 							<th>Category</th>
 							<th>Title</th>
+							<th>Created at</th>
 							<th></th>
 						</tr>
 						</thead>

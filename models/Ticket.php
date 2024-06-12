@@ -8,7 +8,7 @@ class Ticket extends Connect{
         $connect = parent::conexion();
         parent::set_names();
         
-        $sql = "INSERT INTO tickets (id, user_id, category_id, title, description, status) VALUES (NULL, ?, ?, ?, ?, '1');";
+        $sql = "INSERT INTO tickets (id, user_id, category_id, title, description, status, created_at) VALUES (NULL, ?, ?, ?, ?, '1', now());";
 
         $sql= $connect->prepare($sql);
         
@@ -32,6 +32,7 @@ class Ticket extends Connect{
                 tickets.title,
                 tickets.description,
                 tickets.status,
+                tickets.created_at,
                 users.name,
                 users.lastname,
                 categories.name

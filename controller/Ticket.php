@@ -20,6 +20,7 @@ elseif(isset($_GET["op"]) && $_GET["op"] === 'list')
         $sub_array[]=$row["id"];
         $sub_array[]=$row["name"];
         $sub_array[]=$row["title"];
+        $sub_array[]= date("d/m/Y H:i:s", strtotime($row["created_at"]));
         $sub_array[]='<button type="button" onClick="show('.$row["id"].');" id="'.$row["id"].'" class="btn btn-inline btn-primary btn-sm ladda-button"><div><i class="fa fa-eye"></i></div></button>';
         $data[]=$sub_array;
     }
