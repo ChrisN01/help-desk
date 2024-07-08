@@ -9,6 +9,7 @@ class User extends Connect{
         {
             $email = $_POST["email"];
             $password =$_POST["password"];
+            $rol_id =$_POST["rol_id"];
 
             if(empty($email) && empty($password))
             {
@@ -17,10 +18,11 @@ class User extends Connect{
 
             }
             else{
-                $sql = "SELECT * FROM users WHERE email= ? and password=? and status=1;";
+                $sql = "SELECT * FROM users WHERE email= ? and password=? and rol_id = ? and status=1;";
                 $stmt= $connect->prepare($sql);
                 $stmt->bindValue(1,$email);
                 $stmt->bindValue(2,$password);
+                $stmt->bindValue(3,$rol_id);
                 $stmt->execute();
                 $result = $stmt->fetch();
 
@@ -29,6 +31,7 @@ class User extends Connect{
                     $_SESSION["id"]=$result["id"];
                     $_SESSION["name"]=$result["name"];
                     $_SESSION["lastname"]=$result["lastname"];
+                    $_SESSION["rol_id"]=$result["rol_id"];
                     header("Location:".connect::route()."view/Home/");
                     exit();
                 }

@@ -21,8 +21,6 @@ if(isset($_POST["send"]) && $_POST["send"]=="yes")
 	<link href="public/img/favicon.114x114.png" rel="apple-touch-icon" type="image/png" sizes="114x114">
 	<link href="public/img/favicon.72x72.png" rel="apple-touch-icon" type="image/png" sizes="72x72">
 	<link href="public/img/favicon.57x57.png" rel="apple-touch-icon" type="image/png">
-	<link href="public/img/favicon.png" rel="icon" type="image/png">
-	<link href="public/img/favicon.ico" rel="shortcut icon">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -40,10 +38,12 @@ if(isset($_POST["send"]) && $_POST["send"]=="yes")
         <div class="page-center-in">
             <div class="container-fluid">
                 <form class="sign-box" action="" method="POST" id="login_form">
+
+                    <input type="hidden" name="rol_id" id="rol_id" value="1">
                     <div class="sign-avatar">
                         <img src="public/img/avatar-sign.png" alt="">
                     </div>
-                    <header class="sign-title">Sign In</header>
+                    <header class="sign-title" id="signInUserTitle">User Login</header>
 
                     <?php
 
@@ -100,6 +100,9 @@ if(isset($_POST["send"]) && $_POST["send"]=="yes")
                         <div class="float-right reset">
                             <a href="reset-password.html">Reset Password</a>
                         </div>
+                        <div class="float-left reset">
+                            <a href="#" id="btn-support">Login for support area</a>
+                        </div>
                     </div>
                     <input type="hidden" name="send" value="yes">
                     <button type="submit" class="btn btn-rounded">Sign in</button>
@@ -134,5 +137,6 @@ if(isset($_POST["send"]) && $_POST["send"]=="yes")
         });
     </script>
 <script src="public/js/app.js"></script>
+<script src="./index.js"></script>
 </body>
 </html>
