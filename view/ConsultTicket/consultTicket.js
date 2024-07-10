@@ -1,11 +1,21 @@
 var tabla;
-
+var user_id = $('#user_id').val();
+var rol_id = $('#rol_id').val();
 console.log('Hoola')
+var url ='';
 function init() {
     
 }
 
 $(document).ready(function(){
+
+    if(rol_id ==1){
+        url = '../../controller/ticket.php?op=get_ticket_by_user';
+    }
+    else{
+        url = '../../controller/ticket.php?op=get_tickets';
+    }
+
    tabla= $('#ticket_data').dataTable({
 
     "aProcessing": true,
@@ -21,15 +31,15 @@ $(document).ready(function(){
             'pdfHtml5'
             ],
             "ajax":{
-                url: '../../controller/ticket.php?op=list',
+                url: url,
                 type : "post",
                 dataType : "json",	
-                data:{ user_id : 1 },						
+                data: rol_id == 1 ? { user_id: user_id } : {},					
                 error: function(e){
                     console.log(e.responseText);	
                 }
             },
-            "ordering": false,
+            "ordering": true,
             "bDestroy": true,
             "responsive": true,
             "bInfo":true,

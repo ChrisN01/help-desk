@@ -38,23 +38,18 @@ if(isset($_SESSION["id"]))
 
 			<div class="box-typical box-typical-padding">
 			
-			<table id="ticket_data" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+			<table id="ticket_data" class="display table table-striped table-bordered table-vcenter js-dataTable-full">
 						<thead>
 						<tr>
-							<th>#</th>
+							<th style="width:2%;">#</th>
 							<th>Category</th>
-							<th>Title</th>
-							<th>Created at</th>
-							<th></th>
+							<th class= "d-none d-sm-table-cell">Title</th>
+							<th class= "d-none d-sm-table-cell" style="width:5%;">Status</th>
+							<th class= "d-none d-sm-table-cell" style="width:10%;">Created at</th>
+							<th class="text-center" style="width:2%;"></th>
 						</tr>
 						</thead>
 						<tbody>
-						<tr>
-							<td>Tiger Nixon</td>
-							<td>System Architect</td>
-							<td>Edinburgh</td>
-							<td>61</td>
-						</tr>
 						</tbody>
 					</table>
 			</div>

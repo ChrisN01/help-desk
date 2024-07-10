@@ -35,8 +35,8 @@
 	                </div><!--.site-header-shown-->
 	
 	                <div class="mobile-menu-right-overlay"></div>
-					<input type="hidden" name="user_id" value="<?php echo $_SESSION["id"]?>"><!-- CLIENT ID  -->
-					<input type="hidden" name="rol_id" value="<?php echo $_SESSION["rol_id"]?>"><!-- CLIENT ROL -->
+					<input type="hidden" name="user_id" id="user_id" value="<?php echo $_SESSION["id"]?>"><!-- CLIENT ID  -->
+					<input type="hidden" name="rol_id" id="rol_id" value="<?php echo $_SESSION["rol_id"]?>"><!-- CLIENT ROL -->
 	                <div class="site-header-collapsed">
 	                    <div class="site-header-collapsed-in">
 	                        <div class="dropdown dropdown-typical">
