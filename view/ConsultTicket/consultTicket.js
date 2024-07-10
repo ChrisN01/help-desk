@@ -77,6 +77,7 @@ $(document).ready(function(){
 
 function show(ticket_id) {
     console.log(ticket_id)
+    window.open('http://localhost/cursoLaravel/help-desk/view/TicketDetail/?ID='+ticket_id+'');
     
 }
 

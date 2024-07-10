@@ -20,7 +20,7 @@ class Ticket extends Connect{
         return $result = $sql->fetchAll();
     }
 
-
+// Get tickets by user id
     public function getTicketByUser($user_id)
     {
         $connect = parent::conexion();
@@ -54,7 +54,7 @@ class Ticket extends Connect{
 
 
     }
-
+//Get all tickets to support area
     public function getTickets()
     {
         $connect = parent::conexion();
@@ -86,4 +86,28 @@ class Ticket extends Connect{
 
 
     } 
+
+    public function getTicketDetailsByUser($ticket_id)
+    {
+        $connect = parent::conexion();
+        parent::set_names();
+        $sql="SELECT ticket_details.id,
+        ticket_details.description,
+        ticket_details.created_at,
+        users.name,
+        users.lastname,
+        users.rol_id
+        FROM ticket_details
+        INNER JOIN users on ticket_details.user_id = users.id
+        WHERE ticket_id=?;";
+
+
+
+        $sql= $connect->prepare($sql);
+        $sql->bindValue(1,$ticket_id);
+        $sql->execute();
+        return $result = $sql->fetchAll();
+
+
+    }
 }

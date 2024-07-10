@@ -70,7 +70,60 @@ elseif(isset($_GET["op"]) && $_GET["op"] === 'get_tickets')
 
     echo json_encode($results);
 }
+elseif(isset($_GET["op"]) && $_GET["op"] === 'get_ticket_details_by_user')
+{
+    $ticketDetails=$ticket->getTicketDetailsByUser($_POST["ticket_id"]);
 
+    ?>
+        <?php
+            foreach ($ticketDetails as $row) {
+                ?>
+                    <article class="activity-line-item box-typical">
+                        <div class="activity-line-date">
+                            <?php echo date("d/m/Y", strtotime($row["created_at"]))?>
+                        </div>
+                        <header class="activity-line-item-header">
+                            <div class="activity-line-item-user">
+                                <div class="activity-line-item-user-photo">
+                                    <a href="#">
+                                        <img src="../../public/img/photo-64-2.jpg" alt="">
+                                    </a>
+                                </div>
+                                <div class="activity-line-item-user-name">   <?php echo $row['name'].' '.$row['lastname']?></div>
+                                <div class="activity-line-item-user-status">
+                                    <?php 
+                                    if($row['rol_id']==1)
+                                    {
+                                        echo 'User';
+                                    }
+                                    else{
+                                        echo 'Support';
+                                    }?></div>
+                            </div>
+                        </header>
+                        <div class="activity-line-action-list">
+                            <section class="activity-line-action">
+                                <div class="time">   <?php echo date("H:i:s", strtotime($row["created_at"]))?></div>
+                                <div class="cont">
+                                    <div class="cont-in">
+                                        <p><?php echo $row['description']?></p>
+                                
+                                    </div>
+                                </div>
+                            </section><!--.activity-line-action-->
+                        </div><!--.activity-line-action-list-->
+                    </article><!--.activity-line-item-->
+                <?php
+            
+            }
+        ?>
+    
+    <?php
+    
+
+
+
+}
 
 
 ?>
