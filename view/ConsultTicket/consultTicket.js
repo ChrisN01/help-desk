@@ -1,7 +1,7 @@
 var tabla;
 var user_id = $('#user_id').val();
 var rol_id = $('#rol_id').val();
-console.log('Hoola')
+console.log('Consult ticket')
 var url ='';
 function init() {
     
@@ -76,7 +76,7 @@ $(document).ready(function(){
 
 
 function show(ticket_id) {
-    console.log(ticket_id)
+    console.log('entre en show ticket_id: ' + ticket_id)
     window.open('http://localhost/cursoLaravel/help-desk/view/TicketDetail/?ID='+ticket_id+'');
     
 }
